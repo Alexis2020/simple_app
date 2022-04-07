@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:quiz_logic/screens/page_1.dart';
 
 void main() {
@@ -11,12 +12,15 @@ class QuizApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return GlobalLoaderOverlay(
+      overlayOpacity: 0.5,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Page1(),
       ),
-      home: const Page1(),
     );
   }
 }
